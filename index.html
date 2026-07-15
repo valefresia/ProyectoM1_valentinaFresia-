@@ -1,90 +1,90 @@
 <!doctype html>
 <html lang="es">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Generador de paletas — </title>
-    <meta
-      name="description"
-      content="Generador de paletas de colores aleatorias en formato HEX y HSL, con soporte de accesibilidad y feedback visual."
-    />
 
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap"
-      rel="stylesheet"
-    />
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Generador de paletas — </title>
+  <meta name="description"
+    content="Generador de paletas de colores aleatorias en formato HEX y HSL, con soporte de accesibilidad y feedback visual." />
 
-    <link rel="stylesheet" href="./css/style.css" />
-  </head>
-  <body>
-    <header class="site-header">
-      <p class="eyebrow">Herramienta de paletas</p>
-      <h1>Generador de paletas</h1>
-      <p class="subtitle">
-        Generá paletas aleatorias y llevate el código de cada muestra, como en
-        una tira de fichas de pintura.
-      </p>
-    </header>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap"
+    rel="stylesheet" />
 
-    <main class="app">
+  <link rel="stylesheet" href="./css/style.css" />
+</head>
 
-  <!-- Panel de control -->
-  <section class="control-panel">
+<body>
+  <header class="site-header">
+    <p class="eyebrow">Herramienta de paletas</p>
+    <h1>Generador de paletas</h1>
+    <p class="subtitle">
+      Generá paletas aleatorias y llevate el código de cada muestra, como en
+      una tira de fichas de pintura.
+    </p>
+  </header>
 
-    <label for="cantidad">Cantidad de colores</label>
+  <main class="app">
 
-    <select id="cantidad">
+    <!-- Panel de control -->
+    <section class="control-panel">
 
-      <option value="6">6</option>
+      <label for="cantidad">Cantidad de colores</label>
 
-      <option value="8" selected>8</option>
+      <select id="cantidad">
 
-      <option value="9">9</option>
+        <option value="6">6</option>
 
-    </select>
+        <option value="8" selected>8</option>
 
-    <button type="button" id="generate-btn">
-      Generar paleta
-    </button>
+        <option value="9">9</option>
 
+      </select>
+
+      <button type="button" id="generate-btn">
+        Generar paleta
+      </button>
+
+    </section>
+
+    <!-- Contenedor donde se mostrarán los colores -->
+    <section id="palette-grid">
+
+    </section>
+
+    <!-- Mensaje inicial -->
+    <p id="empty-state">
+      Presioná el botón para generar una paleta de colores.
+    </p>
+
+  </main>
+  <!-- Resultado -->
+  <section class="results" aria-labelledby="results-title">
+    <h2 id="results-title" class="visually-hidden">Paleta generada</h2>
+
+    <p id="empty-state" class="empty-state">
+      Todavía no generaste ninguna paleta. Elegí la cantidad de colores y
+      presioná
+      <strong>“Generar paleta”</strong> para empezar
+    </p>
+
+    <ul id="palette-grid" class="palette-grid" hidden></ul>
   </section>
+  </main>
 
-  <!-- Contenedor donde se mostrarán los colores -->
-  <section id="palette-grid">
+  <div id="toast" class="toast" role="status" aria-live="polite"></div>
 
-  </section>
+  <footer class="site-footer">
+    <p>
+      Cada muestra funciona como botón: hacé click o presioná Enter para
+      copiar el código HEX.
+    </p>
+  </footer>
 
-  <!-- Mensaje inicial -->
-  <p id="empty-state">
-    Presioná el botón para generar una paleta de colores.
-  </p>
+  <script src="/script.js"></script>
+</body>
 
-</main>
-      <!-- Resultado -->
-      <section class="results" aria-labelledby="results-title">
-        <h2 id="results-title" class="visually-hidden">Paleta generada</h2>
-
-        <p id="empty-state" class="empty-state">
-          Todavía no generaste ninguna paleta. Elegí la cantidad de colores y
-          presioná
-          <strong>“Generar paleta”</strong> para empezar.
-        </p>
-
-        <ul id="palette-grid" class="palette-grid" hidden></ul>
-      </section>
-    </main>
-
-    <div id="toast" class="toast" role="status" aria-live="polite"></div>
-
-    <footer class="site-footer">
-      <p>
-        Cada muestra funciona como botón: hacé click o presioná Enter para
-        copiar el código HEX.
-      </p>
-    </footer>
-
-    <script src="/script.js"></script>
-  </body>
 </html>
