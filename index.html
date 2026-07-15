@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Generador de paletas — Chip Lab</title>
+    <title>Generador de paletas — </title>
     <meta
       name="description"
       content="Generador de paletas de colores aleatorias en formato HEX y HSL, con soporte de accesibilidad y feedback visual."
@@ -21,7 +21,7 @@
   <body>
     <header class="site-header">
       <p class="eyebrow">Herramienta de paletas</p>
-      <h1>Chip Lab</h1>
+      <h1>Generador de paletas</h1>
       <p class="subtitle">
         Generá paletas aleatorias y llevate el código de cada muestra, como en
         una tira de fichas de pintura.
@@ -29,55 +29,39 @@
     </header>
 
     <main class="app">
-      <!-- Panel de control -->
-      <section class="control-panel" aria-labelledby="control-panel-title">
-        <h2 id="control-panel-title" class="visually-hidden">
-          Configuración de la paleta
-        </h2>
 
-        <fieldset class="size-field">
-          <legend>Cantidad de colores</legend>
-          <div
-            class="segmented"
-            role="radiogroup"
-            aria-label="Cantidad de colores en la paleta"
-          >
-            <input
-              type="radio"
-              name="palette-size"
-              id="size-6"
-              value="6"
-              class="segmented__input"
-            />
-            <label for="size-6" class="segmented__label">6</label>
+  <!-- Panel de control -->
+  <section class="control-panel">
 
-            <input
-              type="radio"
-              name="palette-size"
-              id="size-8"
-              value="8"
-              class="segmented__input"
-              checked
-            />
-            <label for="size-8" class="segmented__label">8</label>
+    <label for="cantidad">Cantidad de colores</label>
 
-            <input
-              type="radio"
-              name="palette-size"
-              id="size-9"
-              value="9"
-              class="segmented__input"
-            />
-            <label for="size-9" class="segmented__label">9</label>
-          </div>
-        </fieldset>
+    <select id="cantidad">
 
-        <button type="button" id="generate-btn" class="generate-btn">
-          <span class="generate-btn__icon" aria-hidden="true">⟳</span>
-          Generar paleta
-        </button>
-      </section>
+      <option value="6">6</option>
 
+      <option value="8" selected>8</option>
+
+      <option value="9">9</option>
+
+    </select>
+
+    <button type="button" id="generate-btn">
+      Generar paleta
+    </button>
+
+  </section>
+
+  <!-- Contenedor donde se mostrarán los colores -->
+  <section id="palette-grid">
+
+  </section>
+
+  <!-- Mensaje inicial -->
+  <p id="empty-state">
+    Presioná el botón para generar una paleta de colores.
+  </p>
+
+</main>
       <!-- Resultado -->
       <section class="results" aria-labelledby="results-title">
         <h2 id="results-title" class="visually-hidden">Paleta generada</h2>
@@ -101,6 +85,6 @@
       </p>
     </footer>
 
-    <script src="script.js"></script>
+    <script src="/script.js"></script>
   </body>
 </html>

@@ -1,8 +1,8 @@
 /* 
-   TOKENS
-   Paper: #EEF1EC   Ink: #14201A   Line: #C7CFC5
-   Card:  #FFFFFF   Accent (focus/active only): #FF5B35
-   Display face: Space Grotesk · Mono/code face: IBM Plex Mono
+   VARIABLES
+   Papel: #EEF1EC   Texto: #14201A   Borde: #C7CFC5
+   Tarjeta: #FFFFFF   Color de énfasis (solo foco/activo): #FF5B35
+   Fuente principal: Space Grotesk · Fuente mono: IBM Plex Mono
 */
 
 :root {
@@ -37,12 +37,13 @@ body {
   min-height: 100vh;
 }
 
-/* Visible focus ring everywhere — accessibility floor, non-negotiable */
+/* Contorno visible al navegar con teclado (accesibilidad) */
 :focus-visible {
   outline: 3px solid var(--accent);
   outline-offset: 2px;
 }
 
+/* Elemento oculto visualmente pero accesible para lectores de pantalla */
 .visually-hidden {
   position: absolute;
   width: 1px;
@@ -56,8 +57,8 @@ body {
 }
 
 /*
-   HEADER
-    */
+   ENCABEZADO
+*/
 
 .site-header {
   max-width: 780px;
@@ -90,8 +91,8 @@ body {
 }
 
 /* 
-   CONTROL PANEL
-    */
+   PANEL DE CONTROLES
+*/
 
 .app {
   max-width: 1080px;
@@ -138,6 +139,7 @@ body {
   overflow: hidden;
 }
 
+/* Radio oculto visualmente */
 .segmented__input {
   position: absolute;
   opacity: 0;
@@ -166,16 +168,19 @@ body {
   border-right: none;
 }
 
+/* Estilo de la opción seleccionada */
 .segmented__input:checked + .segmented__label {
   background: var(--ink);
   color: var(--paper);
 }
 
+/* Foco visible sobre la opción */
 .segmented__input:focus-visible + .segmented__label {
   outline: 3px solid var(--accent);
   outline-offset: -3px;
 }
 
+/* Hover sobre las opciones */
 .segmented__label:hover {
   background: var(--paper);
 }
@@ -184,6 +189,7 @@ body {
   background: var(--ink);
 }
 
+/* Botón principal */
 .generate-btn {
   display: inline-flex;
   align-items: center;
@@ -210,18 +216,20 @@ body {
   transform: scale(0.97);
 }
 
+/* Ícono del botón */
 .generate-btn__icon {
   font-size: 1.1rem;
   transition: transform 400ms ease;
 }
 
+/* Animación al generar la paleta */
 .generate-btn.is-spinning .generate-btn__icon {
   transform: rotate(360deg);
 }
 
 /* 
-   RESULTS / EMPTY STATE
-   */
+   ESTADO VACÍO
+*/
 
 .empty-state {
   text-align: center;
@@ -234,8 +242,8 @@ body {
 }
 
 /* 
-   PALETTE GRID — paint-chip cards
-  */
+   CUADRÍCULA DE LA PALETA
+*/
 
 .palette-grid {
   list-style: none;
@@ -246,6 +254,7 @@ body {
   gap: 20px;
 }
 
+/* Tarjeta de cada color */
 .chip {
   background: var(--card);
   border: 1px solid var(--line);
@@ -254,6 +263,7 @@ body {
   position: relative;
 }
 
+/* Círculo decorativo superior */
 .chip::before {
   content: "";
   position: absolute;
@@ -268,6 +278,7 @@ body {
   z-index: 2;
 }
 
+/* Área donde se muestra el color */
 .chip__swatch {
   width: 100%;
   height: 140px;
@@ -279,6 +290,7 @@ body {
   background-color: var(--swatch-color, #ccc);
 }
 
+/* Ícono para copiar */
 .chip__copy-icon {
   position: absolute;
   bottom: 10px;
@@ -294,22 +306,26 @@ body {
   opacity: 1;
 }
 
+/* Foco visible sobre el color */
 .chip__swatch:focus-visible {
   outline: 3px solid var(--accent);
   outline-offset: -3px;
 }
 
+/* Línea punteada decorativa */
 .chip__perforation {
   border: none;
   border-top: 2px dashed var(--line);
   margin: 0;
 }
 
+/* Información del color */
 .chip__label {
   padding: 12px 14px 14px;
   text-align: center;
 }
 
+/* Código HEX */
 .chip__hex {
   display: block;
   font-family: var(--font-mono);
@@ -318,6 +334,7 @@ body {
   letter-spacing: 0.02em;
 }
 
+/* Código HSL */
 .chip__hsl {
   display: block;
   font-family: var(--font-mono);
@@ -327,8 +344,8 @@ body {
 }
 
 /*
-   TOAST
-   */
+   TOAST (mensaje emergente)
+*/
 
 .toast {
   position: fixed;
@@ -349,14 +366,16 @@ body {
   z-index: 10;
 }
 
+/* Toast visible */
+
 .toast.is-visible {
   opacity: 1;
   transform: translate(-50%, 0);
 }
 
 /*
-   FOOTER
- */
+   PIE DE PÁGINA
+*/
 
 .site-footer {
   text-align: center;
@@ -366,8 +385,8 @@ body {
 }
 
 /* 
-   RESPONSIVE
-    */
+   DISEÑO RESPONSIVE
+*/
 
 @media (max-width: 480px) {
   .control-panel {
@@ -380,7 +399,8 @@ body {
   }
 }
 
-/* Respect reduced motion preferences */
+/* Respeta la preferencia del usuario de reducir animaciones */
+
 @media (prefers-reduced-motion: reduce) {
   .generate-btn__icon,
   .toast {
