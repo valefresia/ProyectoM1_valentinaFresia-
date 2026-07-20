@@ -17,6 +17,17 @@
   --font-mono: "IBM Plex Mono", "SFMono-Regular", Consolas, monospace;
 
   --radius: 4px;
+
+  /* Escala de espaciado: todas las secciones usan estos mismos valores
+     para mantener un ritmo vertical consistente en toda la página */
+  --space-xs: 8px;
+  --space-sm: 12px;
+  --space-md: 20px;
+  --space-lg: 32px;
+  --space-xl: 56px;
+
+  /* Ancho de contenido compartido entre header, panel y grilla */
+  --content-width: 1080px;
 }
 
 * {
@@ -35,6 +46,8 @@ body {
   font-family: var(--font-display);
   line-height: 1.5;
   min-height: 100vh;
+  display: flex;
+  flex-direction: column;
 }
 
 /* Contorno visible al navegar con teclado (accesibilidad) */
@@ -58,13 +71,17 @@ body {
 
 /*
    ENCABEZADO
+   Tiene su propio bloque visual: fondo levemente distinto y una
+   línea inferior que lo separa del contenido de la app.
 */
 
 .site-header {
-  max-width: 780px;
+  max-width: var(--content-width);
   margin: 0 auto;
-  padding: 56px 24px 32px;
+  padding: var(--space-xl) 24px var(--space-lg);
   text-align: center;
+  border-bottom: 1px solid var(--line);
+  width: 100%;
 }
 
 .eyebrow {
@@ -73,14 +90,14 @@ body {
   letter-spacing: 0.12em;
   text-transform: uppercase;
   color: var(--ink-muted);
-  margin: 0 0 12px;
+  margin: 0 0 var(--space-sm);
 }
 
 .site-header h1 {
   font-size: clamp(2.2rem, 5vw, 3rem);
   font-weight: 700;
   letter-spacing: -0.01em;
-  margin: 0 0 12px;
+  margin: 0 0 var(--space-sm);
 }
 
 .subtitle {
@@ -91,26 +108,34 @@ body {
 }
 
 /* 
-   PANEL DE CONTROLES
+   CONTENIDO PRINCIPAL
+   flex: 1 empuja el footer hacia abajo cuando hay poco contenido,
+   para que no quede "flotando" a mitad de pantalla.
 */
 
 .app {
-  max-width: 1080px;
+  flex: 1;
+  max-width: var(--content-width);
   margin: 0 auto;
-  padding: 0 24px 80px;
+  padding: var(--space-xl) 24px;
+  width: 100%;
 }
+
+/* 
+   PANEL DE CONTROLES
+*/
 
 .control-panel {
   display: flex;
   flex-wrap: wrap;
   align-items: center;
   justify-content: center;
-  gap: 24px;
+  gap: var(--space-lg);
   border: 1px solid var(--line);
   background: var(--card);
   border-radius: var(--radius);
-  padding: 20px 24px;
-  margin-bottom: 40px;
+  padding: var(--space-md) 24px;
+  margin-bottom: var(--space-xl);
 }
 
 .size-field {
@@ -119,7 +144,7 @@ body {
   padding: 0;
   display: flex;
   align-items: center;
-  gap: 12px;
+  gap: var(--space-sm);
 }
 
 .size-field legend {
@@ -251,7 +276,7 @@ body {
   padding: 0;
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
-  gap: 20px;
+  gap: var(--space-md);
 }
 
 /* Tarjeta de cada color */
@@ -321,7 +346,7 @@ body {
 
 /* Información del color */
 .chip__label {
-  padding: 12px 14px 14px;
+  padding: var(--space-sm) 14px 14px;
   text-align: center;
 }
 
@@ -350,7 +375,7 @@ body {
 .toast {
   position: fixed;
   left: 50%;
-  bottom: 32px;
+  bottom: var(--space-lg);
   transform: translate(-50%, 12px);
   background: var(--ink);
   color: var(--paper);
@@ -375,13 +400,32 @@ body {
 
 /*
    PIE DE PÁGINA
+   Bloque propio, separado del contenido por una línea punteada
+   y con ancho acotado para que no se estire de punta a punta.
 */
 
 .site-footer {
   text-align: center;
   color: var(--ink-muted);
   font-size: 0.85rem;
-  padding: 0 24px 56px;
+  max-width: 480px;
+  margin: 0 auto;
+  padding: var(--space-lg) 24px var(--space-xl);
+  border-top: 2px dashed var(--line);
+  width: 100%;
+}
+
+.site-footer p {
+  margin: 0 0 10px;
+}
+
+.site-footer p:last-child {
+  margin-bottom: 0;
+}
+
+/* Línea de crédito: reutiliza .eyebrow pero sin el margen inferior grande del header */
+.site-footer .eyebrow {
+  margin: 0;
 }
 
 /* 
