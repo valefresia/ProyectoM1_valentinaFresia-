@@ -30,9 +30,8 @@ Cada color se muestra junto con su código HEX para facilitar su uso en proyecto
 ```
 ## Cómo utilizar el proyecto
 1. Clonar el repositorio.
-
 ```bash
-git clone 
+git clone https://github.com/valefresia/ProyectoM1_valentinaFresia-.git
 ```
 2. Abrir la carpeta del proyecto.
 3. Ejecutar el archivo `index.html` en el navegador.
