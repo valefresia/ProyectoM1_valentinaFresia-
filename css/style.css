@@ -428,6 +428,36 @@ body {
   margin: 0;
 }
 
+/* Links a LinkedIn y GitHub: mismo idioma visual que .eyebrow (mono, chico, muted) */
+.footer-links {
+  display: flex;
+  justify-content: center;
+  gap: var(--space-md);
+  margin-top: var(--space-sm);
+}
+
+.footer-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  color: var(--ink-muted);
+  text-decoration: none;
+  font-family: var(--font-mono);
+  font-size: 0.78rem;
+  letter-spacing: 0.04em;
+  transition: color 120ms ease;
+}
+
+.footer-link:hover {
+  color: var(--ink);
+}
+
+.footer-link:focus-visible {
+  outline: 3px solid var(--accent);
+  outline-offset: 3px;
+  border-radius: 2px;
+}
+
 /* 
    DISEÑO RESPONSIVE
 */
