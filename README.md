@@ -1,32 +1,32 @@
 # Generador de Paletas de Colores — PI Módulo 1 Henry
 
 ## Descripción
-Aplicación web que genera paletas de colores aleatorias. El usuario elige la cantidad de colores y el formato de código (HEX o RGBA), genera una nueva paleta con un botón, y puede copiar cualquier color al portapapeles con un click.
+Aplicación web que genera paletas de colores aleatorias. El usuario elige la cantidad de colores y el formato de código, genera una nueva paleta con un botón, y puede copiar cualquier color al portapapeles con un click.
 ---
 ## Demo
  Ver demo en GitHub Pages(https://valefresia.github.io/ProyectoM1_valentinaFresia-/)
 ---
 ## Funcionalidades
-- Generación de paletas de colores aleatorias.
-- Selección de cantidad de colores.
-- Elección de formato de código: HEX o RGBA (además se muestra siempre el valor en HSL).
-- Copiado del código de color al portapapeles con un click sobre la ficha.
-- Notificación tipo *toast* al copiar un color.
-- Contraste automático: el color del ícono sobre cada ficha se adapta según el brillo del fondo, para mantener legibilidad.
-- Diseño responsive para desktop y móvil.
-- HTML semántico y consideraciones básicas de accesibilidad.
----
+- Generación de paletas de colores aleatorios
+- Selección de cantidad de colores 6, 8 o 9 
+- Elección de formato de código: HEX o RGBA además siempre se muestra el valor en HSL
+- Copiado del código de color al portapapeles con un click sobre la ficha
+- Notificación tipo al copiar un color
+- Contraste automático: el color del ícono sobre cada ficha se adapta según el brillo del fondo, para mantener legibilidad
+- Diseño responsive para desktop y móvil
+- HTML semántico y consideraciones básicas de accesibilidad
+--
 ## Tecnologías utilizadas
 - HTML5
 - CSS3
-- JavaScript nativo (sin librerías ni frameworks)
+- JavaScript
 - Git
 - GitHub
 - GitHub Pages
 ---
 ## Estructura del proyecto
 ```
-proyecto-paleta-colores
+ProyectoM1_valentinaFresia-
 │── index.html
 │── style.css
 │── script.js
@@ -60,6 +60,11 @@ Este proyecto fue desarrollado como challenge final para poner en práctica cono
 - Funciones.
 - Generación de datos aleatorios.
 - Buenas prácticas de organización del código.
+
+## Uso de la IA
+Documento publico para leer con capturas 
+https://docs.google.com/document/d/1zXVIoCIWPUnK46Br_382n0FYYuKDyjJMavjz27oTagM/edit?usp=sharing
+
 ---
 ## Autor
 Valentina Fresia
