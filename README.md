@@ -27,8 +27,9 @@ Aplicación web que genera paletas de colores aleatorias. El usuario elige la ca
 ## Estructura del proyecto
 ```
 ProyectoM1_valentinaFresia-
+│── css/
+│    └── style.css
 │── index.html
-│── style.css
 │── script.js
 │── README.md
 ---
@@ -43,7 +44,7 @@ git clone https://github.com/valefresia/ProyectoM1_valentinaFresia-.git
 3. Ejecutar `index.html` en el navegador.
 
 **Producción:**
-La app está desplegada en GitHub Pages (ver link en la sección Demo). El despliegue se hace directamente desde la rama principal del repositorio, sin build ni proceso de compilación, ya que es HTML/CSS/JS puro.
+La app está desplegada en GitHub Pages (ver link en la sección Demo). El despliegue se hace directamente desde la rama principal del repositorio, sin build ni proceso de compilación, ya que es HTML/CSS/JS.
 ---
 ## Decisiones técnicas
 - JavaScript puro, sin librerías externas, para practicar el manejo directo de la página (crear, modificar y borrar elementos a mano).
@@ -61,10 +62,9 @@ Este proyecto fue desarrollado como challenge final para poner en práctica cono
 - Generación de datos aleatorios.
 - Buenas prácticas de organización del código.
 
-## Uso de la IA
-Documento publico para leer con capturas 
-https://docs.google.com/document/d/1zXVIoCIWPUnK46Br_382n0FYYuKDyjJMavjz27oTagM/edit?usp=sharing
-
+## Uso de la IA y flujo de la pagina
+Carpeta publica para leer  documento de la IA y flujo de la pagina con capturas 
+https://drive.google.com/drive/folders/1kZESx_qCTHDatftRnkMD8G75gbiRU40A?usp=sharing
 ---
 ## Autor
 Valentina Fresia
