@@ -46,10 +46,10 @@ git clone https://github.com/valefresia/ProyectoM1_valentinaFresia-.git
 La app está desplegada en GitHub Pages (ver link en la sección Demo). El despliegue se hace directamente desde la rama principal del repositorio, sin build ni proceso de compilación, ya que es HTML/CSS/JS puro.
 ---
 ## Decisiones técnicas
-- JavaScript nativo, sin librerías, para reforzar el manejo directo del DOM.
-- Delegación de eventos en el contenedor de las fichas (un solo listener) en lugar de un listener por ficha, porque el contenido se genera y destruye dinámicamente en cada click de "Generar".
-- Cálculo de contraste de texto con una fórmula de brillo perceptual, para que el ícono de copiado sea siempre legible sin importar el color de fondo.
-- Separación en tres archivos (HTML, CSS, JS) según responsabilidad, en vez de todo mezclado.
+- JavaScript puro, sin librerías externas, para practicar el manejo directo de la página (crear, modificar y borrar elementos a mano).
+- Un solo "listener" de clics en el contenedor de las fichas, en vez de uno por cada ficha. Como las fichas se crean y se borran cada vez que tocás "Generar", conviene escuchar los clics desde el contenedor padre en lugar de repetir la misma lógica en cada ficha nueva.
+- El color del ícono de copiado (blanco o negro) se calcula según qué tan claro u oscuro es el fondo, para que siempre se pueda leer bien sin importar el color que haya salido.
+- El código está dividido en tres archivos (HTML, CSS y JS), cada uno con su función, en vez de tener todo junto en uno solo.
 ---
 ## Objetivo
 Este proyecto fue desarrollado como challenge final para poner en práctica conocimientos fundamentales de desarrollo web, incluyendo:
