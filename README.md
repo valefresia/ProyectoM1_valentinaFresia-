@@ -68,3 +68,6 @@ https://docs.google.com/document/d/1zXVIoCIWPUnK46Br_382n0FYYuKDyjJMavjz27oTagM/
 ---
 ## Autor
 Valentina Fresia
+www.linkedin.com/in/valentina-fresia
+
+
