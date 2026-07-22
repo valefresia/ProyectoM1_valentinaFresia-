@@ -1,10 +1,3 @@
-/* 
-   VARIABLES
-   Papel: #EEF1EC   Texto: #14201A   Borde: #C7CFC5
-   Tarjeta: #FFFFFF   Color de énfasis (solo foco/activo): #FF5B35
-   Fuente principal: Space Grotesk · Fuente mono: IBM Plex Mono
-*/
-
 :root {
   --paper: #eef1ec;
   --ink: #14201a;
@@ -26,7 +19,6 @@
   --space-lg: 32px;
   --space-xl: 56px;
 
-  /* Ancho de contenido compartido entre header, panel y grilla */
   --content-width: 1080px;
 }
 
@@ -50,13 +42,11 @@ body {
   flex-direction: column;
 }
 
-/* Contorno visible al navegar con teclado (accesibilidad) */
 :focus-visible {
   outline: 3px solid var(--accent);
   outline-offset: 2px;
 }
 
-/* Elemento oculto visualmente pero accesible para lectores de pantalla */
 .visually-hidden {
   position: absolute;
   width: 1px;
@@ -68,12 +58,6 @@ body {
   white-space: nowrap;
   border: 0;
 }
-
-/*
-   ENCABEZADO
-   Tiene su propio bloque visual: fondo levemente distinto y una
-   línea inferior que lo separa del contenido de la app.
-*/
 
 .site-header {
   max-width: var(--content-width);
@@ -107,12 +91,6 @@ body {
   margin: 0 auto;
 }
 
-/* 
-   CONTENIDO PRINCIPAL
-   flex: 1 empuja el footer hacia abajo cuando hay poco contenido,
-   para que no quede "flotando" a mitad de pantalla.
-*/
-
 .app {
   flex: 1;
   max-width: var(--content-width);
@@ -120,10 +98,6 @@ body {
   padding: var(--space-xl) 24px;
   width: 100%;
 }
-
-/* 
-   PANEL DE CONTROLES
-*/
 
 .control-panel {
   display: flex;
@@ -164,7 +138,6 @@ body {
   overflow: hidden;
 }
 
-/* Radio oculto visualmente */
 .segmented__input {
   position: absolute;
   opacity: 0;
@@ -193,19 +166,16 @@ body {
   border-right: none;
 }
 
-/* Estilo de la opción seleccionada */
 .segmented__input:checked + .segmented__label {
   background: var(--ink);
   color: var(--paper);
 }
 
-/* Foco visible sobre la opción */
 .segmented__input:focus-visible + .segmented__label {
   outline: 3px solid var(--accent);
   outline-offset: -3px;
 }
 
-/* Hover sobre las opciones */
 .segmented__label:hover {
   background: var(--paper);
 }
@@ -214,7 +184,6 @@ body {
   background: var(--ink);
 }
 
-/* Botón principal */
 .generate-btn {
   display: inline-flex;
   align-items: center;
@@ -241,20 +210,14 @@ body {
   transform: scale(0.97);
 }
 
-/* Ícono del botón */
 .generate-btn__icon {
   font-size: 1.1rem;
   transition: transform 400ms ease;
 }
 
-/* Animación al generar la paleta */
 .generate-btn.is-spinning .generate-btn__icon {
   transform: rotate(360deg);
 }
-
-/* 
-   ESTADO VACÍO
-*/
 
 .empty-state {
   text-align: center;
@@ -266,10 +229,6 @@ body {
   margin: 0 auto;
 }
 
-/* 
-   CUADRÍCULA DE LA PALETA
-*/
-
 .palette-grid {
   list-style: none;
   margin: 0;
@@ -279,7 +238,6 @@ body {
   gap: var(--space-md);
 }
 
-/* Tarjeta de cada color */
 .chip {
   background: var(--card);
   border: 1px solid var(--line);
@@ -288,7 +246,6 @@ body {
   position: relative;
 }
 
-/* Círculo decorativo superior */
 .chip::before {
   content: "";
   position: absolute;
@@ -303,7 +260,6 @@ body {
   z-index: 2;
 }
 
-/* Área donde se muestra el color */
 .chip__swatch {
   width: 100%;
   height: 140px;
@@ -315,7 +271,6 @@ body {
   background-color: var(--swatch-color, #ccc);
 }
 
-/* Ícono para copiar */
 .chip__copy-icon {
   position: absolute;
   bottom: 10px;
@@ -331,26 +286,22 @@ body {
   opacity: 1;
 }
 
-/* Foco visible sobre el color */
 .chip__swatch:focus-visible {
   outline: 3px solid var(--accent);
   outline-offset: -3px;
 }
 
-/* Línea punteada decorativa */
 .chip__perforation {
   border: none;
   border-top: 2px dashed var(--line);
   margin: 0;
 }
 
-/* Información del color */
 .chip__label {
   padding: var(--space-sm) 14px 14px;
   text-align: center;
 }
 
-/* Código HEX */
 .chip__hex {
   display: block;
   font-family: var(--font-mono);
@@ -359,7 +310,6 @@ body {
   letter-spacing: 0.02em;
 }
 
-/* Código HSL */
 .chip__hsl {
   display: block;
   font-family: var(--font-mono);
@@ -367,10 +317,6 @@ body {
   color: var(--ink-muted);
   margin-top: 4px;
 }
-
-/*
-   TOAST (mensaje emergente)
-*/
 
 .toast {
   position: fixed;
@@ -391,18 +337,10 @@ body {
   z-index: 10;
 }
 
-/* Toast visible */
-
 .toast.is-visible {
   opacity: 1;
   transform: translate(-50%, 0);
 }
-
-/*
-   PIE DE PÁGINA
-   Bloque propio, separado del contenido por una línea punteada
-   y con ancho acotado para que no se estire de punta a punta.
-*/
 
 .site-footer {
   text-align: center;
@@ -423,12 +361,10 @@ body {
   margin-bottom: 0;
 }
 
-/* Línea de crédito: reutiliza .eyebrow pero sin el margen inferior grande del header */
 .site-footer .eyebrow {
   margin: 0;
 }
 
-/* Links a LinkedIn y GitHub: mismo idioma visual que .eyebrow (mono, chico, muted) */
 .footer-links {
   display: flex;
   justify-content: center;
@@ -458,10 +394,6 @@ body {
   border-radius: 2px;
 }
 
-/* 
-   DISEÑO RESPONSIVE
-*/
-
 @media (max-width: 480px) {
   .control-panel {
     flex-direction: column;
@@ -472,8 +404,6 @@ body {
     justify-content: center;
   }
 }
-
-/* Respeta la preferencia del usuario de reducir animaciones */
 
 @media (prefers-reduced-motion: reduce) {
   .generate-btn__icon,

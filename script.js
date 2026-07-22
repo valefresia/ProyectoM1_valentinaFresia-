@@ -3,6 +3,7 @@ const selectCantidad = document.getElementById("cantidad");
 const contenedor = document.getElementById("palette-grid");
 const mensaje = document.getElementById("empty-state");
 const toast = document.getElementById("toast");
+const radiosFormato = document.querySelectorAll('input[name="formato"]');
 
 function numeroAleatorio(min, max) {
   return Math.floor(Math.random() * (max - min + 1)) + min;
@@ -74,12 +75,21 @@ function colorDeTexto(hex) {
   return brillo > 128 ? "#14201A" : "#EEF1EC";
 }
 
+// Devuelve el código a mostrar como segundo dato de la ficha,
+// según el formato elegido (HEX o RGBA). Se usa tanto al crear
+// una ficha nueva como al actualizar una que ya existe.
+function obtenerCodigoSecundario(hex, formato) {
+  return formato === "rgba" ? hexToRgba(hex) : hex;
+}
+
+function obtenerFormatoSeleccionado() {
+  return document.querySelector('input[name="formato"]:checked').value;
+}
+
 function crearTarjeta(hex, formato) {
   const hsl = hexToHSL(hex);
   const colorTexto = colorDeTexto(hex);
-
-  // Segundo código a mostrar: HEX o RGBA, según lo que haya elegido el usuario
-  const segundoCodigo = formato === "rgba" ? hexToRgba(hex) : hex;
+  const segundoCodigo = obtenerCodigoSecundario(hex, formato);
 
   return `
     <li class="chip">
@@ -94,14 +104,14 @@ function crearTarjeta(hex, formato) {
       <hr class="chip__perforation" />
       <div class="chip__label">
         <span class="chip__hex">${hsl}</span>
-        <span class="chip__hsl">${segundoCodigo}</span>
+        <span class="chip__hsl" data-codigo-secundario>${segundoCodigo}</span>
       </div>
     </li>
   `;
 }
 
 function generarPaleta(cantidad) {
-  const formatoSeleccionado = document.querySelector('input[name="formato"]:checked').value;
+  const formatoSeleccionado = obtenerFormatoSeleccionado();
   const tarjetas = [];
 
   for (let i = 0; i < cantidad; i++) {
@@ -112,6 +122,28 @@ function generarPaleta(cantidad) {
   contenedor.innerHTML = tarjetas.join("");
   mensaje.hidden = true;
   contenedor.hidden = false;
+}
+
+// Recorre las fichas ya generadas y actualiza solo el código secundario
+// (HEX o RGBA) según el formato recién elegido. No toca los colores:
+// por eso el usuario puede cambiar de formato sin perder la paleta actual.
+function actualizarFormatoDeFichas() {
+  if (contenedor.hidden) {
+    return; // todavía no se generó ninguna paleta, no hay nada que actualizar
+  }
+
+  const formatoActual = obtenerFormatoSeleccionado();
+  const fichas = contenedor.querySelectorAll(".chip__swatch");
+
+  fichas.forEach(function (boton) {
+    const hex = boton.dataset.hex;
+    const nuevoCodigo = obtenerCodigoSecundario(hex, formatoActual);
+    const spanCodigo = boton
+      .closest(".chip")
+      .querySelector("[data-codigo-secundario]");
+
+    spanCodigo.textContent = nuevoCodigo;
+  });
 }
 
 function mostrarToast(texto) {
@@ -126,6 +158,10 @@ function mostrarToast(texto) {
 botonGenerar.addEventListener("click", function () {
   const total = Number(selectCantidad.value);
   generarPaleta(total);
+});
+
+radiosFormato.forEach(function (radio) {
+  radio.addEventListener("change", actualizarFormatoDeFichas);
 });
 
 contenedor.addEventListener("click", function (event) {
