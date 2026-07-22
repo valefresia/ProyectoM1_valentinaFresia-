@@ -60,6 +60,10 @@ Este proyecto fue desarrollado como challenge final para poner en práctica cono
 - Funciones.
 - Generación de datos aleatorios.
 - Buenas prácticas de organización del código.
+
 ---
 ## Autor
 Valentina Fresia
+www.linkedin.com/in/valentina-fresia
+
+
