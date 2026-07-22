@@ -33,9 +33,11 @@ ProyectoM1_valentinaFresia-
 │── script.js
 │── README.md
 ---
-## Cómo utilizar el proyecto
+
+## Como utlizar el proyecto
 
 **Local:**
+
 1. Clonar el repositorio:
 ```bash
 git clone https://github.com/valefresia/ProyectoM1_valentinaFresia-.git
